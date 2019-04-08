@@ -4,14 +4,14 @@ var noiseSource = new Tone.Noise({
 	"playbackRate"  : 4
 }); //.start(); //toMaster();
 
-var noise = new Tone.AutoFilter({
+var filter = new Tone.AutoFilter({
 	"frequency" : 0.1,
 	"min" : 400,
 	"max" : 15000
 }).connect(Tone.Master);
 
-noiseSource.connect(noise);
-noise.start();
+noiseSource.connect(filter);
+filter.start();
 
 var isPlaying = false;
 
@@ -22,6 +22,7 @@ var isPlaying = false;
 
 	main.onclick = function(){
 		console.log('onclick', isPlaying);
+		noiseSource.start();
 		// if(!isPlaying){
 		// 	noiseSource.start();
 		// 	isPlaying = !isPlaying;
