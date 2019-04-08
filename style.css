@@ -6,15 +6,82 @@ html, body {
     align-items: center;
     height: 100%;
     width: 100%;
-	background-color: white;
-/*    background-image: url('hellscape.png');
+    background: black;
+	/*background-image: url('fire.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;*/
+
 }
 
-img {
+#unmute-button svg path {
+	fill: white;
+	outline: none;
+}
+
+#overlay {
+	   pointer-events: none;
+
+	width: 100%;
+	height: 100%;
+	opacity: 0.8;
+	position: absolute;
+	left: 0;
+	top: 0;
+	/*display: none;*/
+	background: rgb(2,0,36);
+	background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(12,12,89,1) 100%);
+    background-size: 400% 400%;
+	-webkit-animation: Gradient 15s ease-in infinite;
+	-moz-animation: Gradient 15s ease-in infinite;
+	animation: Gradient 15s ease-in infinite;
+}
+
+svg#main {
 	padding: 20px;
-	max-width: 80%;
-	width: 800px;
+	max-width: 70%;
+	width: 600px;
+	cursor: pointer;
+}
+
+svg#main:hover {
+  animation: shake 0.02s linear infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+
+@keyframes shake {
+  0% {
+  	transform: translate3d(2px, 0, 0);
+  }
+  100% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
 }
