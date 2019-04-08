@@ -1,11 +1,11 @@
 var noiseSource = new Tone.Noise({
 	"volume" : 0,
-	"type" : "brown",
-	"playbackRate"  : 4
+	"type" : "white",
+	"playbackRate"  : 0.2
 }); //.start(); //toMaster();
 
 var filter = new Tone.AutoFilter({
-	"frequency" : 0.1,
+	"frequency" : 200,
 	"min" : 400,
 	"max" : 15000
 }).connect(Tone.Master);
