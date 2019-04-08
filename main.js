@@ -1,16 +1,17 @@
 var noiseSource = new Tone.Noise({
-	"volume" : -10,
+	"volume" : 0,
 	"type" : "brown",
-	"playbackRate"  : 0.2
-}).start(); //toMaster();
+	"playbackRate"  : 4
+}); //.start(); //toMaster();
 
 var noise = new Tone.AutoFilter({
-	"frequency" : "2m",
-	"min" : 800,
+	"frequency" : 0.1,
+	"min" : 400,
 	"max" : 15000
 }).connect(Tone.Master);
 
 noiseSource.connect(noise);
+noise.start();
 
 var isPlaying = false;
 
@@ -21,15 +22,19 @@ var isPlaying = false;
 
 	main.onclick = function(){
 		console.log('onclick', isPlaying);
-		noiseSource.volume = -5;
 		// if(!isPlaying){
 		// 	noiseSource.start();
+		// 	isPlaying = !isPlaying;
+		// }
+		// else {
+		// 	noiseSource.stop();
 		// 	isPlaying = !isPlaying;
 		// }
 	}
 
 	main.addEventListener("mouseover", function(){
 		console.log('mouseover', isPlaying);
+		console.log('delta');
 		if(!isPlaying){
 			noiseSource.start();
 			isPlaying = !isPlaying;
