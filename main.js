@@ -32,7 +32,7 @@ var player = new Tone.Player({
 player.volume.value = 6;
 
 var eyes = new Tone.Player({
-  "url" : "eyes.mp3",
+  "url" : "eyes-short.mp3",
   "autostart" : true,
   "loop" : true,
   "reverse": true,
@@ -73,7 +73,7 @@ Tone.Transport.scheduleRepeat(function(time){
 	console.log("vol", eyes.volume.value);
 	console.log("pitch", pitchShift.pitch);
 
-}, 8);
+}, 7);
 
 Tone.Transport.start();
 
@@ -98,27 +98,26 @@ Tone.Transport.start();
 // 	p.connect(ps);
 // }
 
-var oscillators = [];
-var bassFreq = 30;
-var bassInterval = 3;
-var bassMax = -30;
-var oscCount = 4;
+// var oscillators = [];
+// var bassFreq = 30;
+// var bassInterval = 3;
+// var bassMax = -40;
+// var oscCount = 4;
 
-for (var i = 0; i < oscCount; i++){
-oscillators.push(new Tone.Oscillator({
-  "frequency" : bassFreq * i,
-  //"type" : "sawtooth10",
-  "volume" : bassMax,//-Infinity,
-  "detune" : Math.random() * 30 - 15,
-}).toMaster());
-}
+// for (var i = 0; i < oscCount; i++){
+// oscillators.push(new Tone.Oscillator({
+//   "frequency" : bassFreq * i,
+//   //"type" : "sawtooth10",
+//   "volume" : bassMax,//-Infinity,
+//   "detune" : Math.random() * 30 - 15,
+// }).toMaster());
+// }
 
-oscillators.forEach(o => {
-	//console.log('ramping:', o.frequency);
-	o.start();
-	o.volume.rampTo(bassMax, bassInterval);
-});
-
+// oscillators.forEach(o => {
+// 	//console.log('ramping:', o.frequency);
+// 	o.start();
+// 	o.volume.rampTo(bassMax, bassInterval);
+// });
 
 var kill = new Tone.Oscillator({
   "frequency" : 3000,
